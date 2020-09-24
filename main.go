@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"Gin-QuickStart/routers"
-	"Gin-QuickStart/setting"
+	"gin-starter/routers"
+	"gin-starter/setting"
 )
 
 func main() {

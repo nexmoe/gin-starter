@@ -3,8 +3,8 @@ package routers
 import (
     "github.com/gin-gonic/gin"
 
-    "Gin-QuickStart/controllers/api/v1"
-    "Gin-QuickStart/setting"
+    "gin-starter/controllers/api/v1"
+    "gin-starter/setting"
 )
 
 func InitRouter() *gin.Engine {

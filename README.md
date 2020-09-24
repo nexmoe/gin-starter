@@ -1,2 +1,2 @@
-# Gin-QuickStart
+# gin-starter
  
