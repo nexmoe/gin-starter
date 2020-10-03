@@ -1,0 +1,13 @@
+run_mode = "release"
+
+[server]
+port = 8000
+read_timeout = 60
+write_timeout = 60
+    
+[mysql] 
+username = "root"
+password = "root"
+host = "127.0.0.1:3306"
+name = "example"
+table_prefix = "blog_"

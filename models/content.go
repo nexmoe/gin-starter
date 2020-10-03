@@ -1,6 +1,6 @@
 package models
 
-type Article struct {
+type Content struct {
   
 }
 

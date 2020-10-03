@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"gin-starter/routers"
-	"gin-starter/setting"
+	"gin-starter/pkg/setting"
 )
 
 func main() {
