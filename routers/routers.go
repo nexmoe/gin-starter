@@ -8,13 +8,9 @@ import (
 )
 
 func InitRouter() *gin.Engine {
-    r := gin.New()
+    r := gin.Default()
 
-    r.Use(gin.Logger())
-
-    r.Use(gin.Recovery())
-
-    gin.SetMode(setting.RunMode)
+    gin.SetMode(setting.Cfg.GetString("run_mode"))
 
     apiv1 := r.Group("/api/v1")
     {
