@@ -1,13 +1,13 @@
-run_mode = "release"
+run_mode = "release" # debug, test, release
 
 [server]
 port = 8000
-read_timeout = 60
-write_timeout = 60
+read_timeout = 60 # seconds
+write_timeout = 60 # seconds
     
 [mysql] 
 username = "root"
 password = "root"
-host = "127.0.0.1:3306"
+host = "127.0.0.1:3306" # 127.0.0.1:3306
 dbname = "example"
 table_prefix = "blog_"

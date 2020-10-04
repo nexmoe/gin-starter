@@ -19,8 +19,8 @@ func main() {
 	s := &http.Server{
 		Addr:           fmt.Sprintf(":%d", setting.Cfg.GetInt("server.port")),
 		Handler:        router,
-		ReadTimeout:    setting.Cfg.GetDuration("server.read_timeout"),
-		WriteTimeout:   setting.Cfg.GetDuration("server.write_timeout"),
+		ReadTimeout:    setting.Cfg.GetDuration("server.read_timeout") * time.Second,
+		WriteTimeout:   setting.Cfg.GetDuration("server.write_timeout") * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
 

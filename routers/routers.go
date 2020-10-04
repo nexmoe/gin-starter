@@ -15,7 +15,7 @@ func InitRouter() *gin.Engine {
     apiv1 := r.Group("/api/v1")
     {
         //获取标签列表
-        apiv1.GET("/tags", v1.GetContent)
+        apiv1.GET("/contents", v1.GetContent)
     }
 
     return r
