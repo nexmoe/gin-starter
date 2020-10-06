@@ -16,17 +16,22 @@ import (
 
 func main() {
 	router := routers.InitRouter()
+
+	port := fmt.Sprintf(":%d", setting.Cfg.GetInt("server.port"))
+
 	s := &http.Server{
-		Addr:           fmt.Sprintf(":%d", setting.Cfg.GetInt("server.port")),
+		Addr:           port,
 		Handler:        router,
 		ReadTimeout:    setting.Cfg.GetDuration("server.read_timeout") * time.Second,
 		WriteTimeout:   setting.Cfg.GetDuration("server.write_timeout") * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
 
+	log.Printf("[info] start http server listening %s", port)
+	
 	go func() {
         if err := s.ListenAndServe(); err != nil {
-            log.Printf("Listen: %s\n", err)
+            log.Printf("[info] Listen: %s\n", err)
         }
     }()
 
@@ -34,13 +39,13 @@ func main() {
     signal.Notify(quit, os.Interrupt)
     <- quit
 
-    log.Println("Shutdown Server ...")
+    log.Println("[info] Shutdown Server ...")
 
     ctx, cancel := context.WithTimeout(context.Background(), 5 * time.Second)
     defer cancel()
     if err := s.Shutdown(ctx); err != nil {
-        log.Fatal("Server Shutdown:", err)
+        log.Fatal("[info] Server Shutdown:", err)
     }
 
-    log.Println("Server exiting")
+    log.Println("[info] Server exiting")
 }
